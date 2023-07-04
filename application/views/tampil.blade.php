@@ -36,6 +36,25 @@
     <div class="row g-5">
       <div class="col-md-6">
         <h2 class="text-body-emphasis">Tampil Input Data</h2>
+        <table class="table table-bordered">
+        <tr>
+            <th>Username</th>
+            <th>Artikel</th>
+            <th>Created_at</th>
+            <th>Updated_at</th> 
+            <th>aksi</th> 
+
+          </tr>
+          @foreach($post_list as $post)
+        <tr>
+          <td>{{ $post->user->username}}</td>
+          <td>{{ $post->artikel }}</td>
+          <td>{{ $post->created_at}}</td>
+          <td>{{ $post->updated_at }}</td>
+          <td><a href="{{ site_url('Welcome/ubah/'.$post->id) }}">Hapus</a> | <a href="{{ site_url('Welcome/ubah/'.$post->id) }}">Ubah</a></td> 
+        </tr>
+        @endforeach
+        </table>
         <a href="{{ site_url('Welcome/index') }}" class="btn btn-success">Tambah</a>
       </div>
     </div>
